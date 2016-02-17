@@ -1,0 +1,1 @@
+This is a project entirely build using Angular JS. 

@@ -1,0 +1,53 @@
+[
+{
+	name: "Ruby",
+	description: "Lorem Ipsum Good Lorem Ipsum Good Lorem Ipsum Good ",
+	price: 50,
+	canPurchase: true,
+	soldOut: false,
+	images: [{
+		full: 'man.png',
+		thumb: ''
+	},
+	{
+		full: 'man.png',
+		thumb: ''
+	}],
+	reviews: [
+	{
+		stars: 5,
+		body: "sfsfsdfasfafd",
+		author: "samsi"
+	},
+	{
+		stars: 4,
+		body: "sdadsadghfjhffg",
+		author: "samseena"
+	}]
+},
+
+{
+	name: "Emerald",
+	description: "Lorem Ipsum Better",
+	price: 200,
+	canPurchase: false,
+	soldOut: true,
+	images: [{
+		full: 'man.png',
+		thumb: ''
+	},
+	{
+		full: 'man.png',
+		thumb: ''
+	}],
+	reviews: []
+},
+{
+	name: "Saphire",
+	description: "Lorem Ipsum Best Lorem Ipsum Best Lorem Ipsum Best Lorem Ipsum Best",
+	price: 550,
+	canPurchase: true,
+	soldOut: false,
+	images: [],
+	reviews: []
+}];

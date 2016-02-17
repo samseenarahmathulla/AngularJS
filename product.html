@@ -1,0 +1,7 @@
+<ul>
+	<li>{{product.name | uppercase}}</li> <!-- {{storecntrler.product.name}} if single gem -->
+	<li>{{product.description | limitTo:8}}</li>
+	<li>{{product.price | currency}}</li> 
+	<li ng-show="{{product.images.length}}"><img ng-src="{{product.images[0].full}}" /></li>
+	<li><button ng-show="product.canPurchase">Add To Cart</button></li>
+</ul>

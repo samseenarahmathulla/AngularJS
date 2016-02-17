@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" href="bootstrap.min.css"/>
+		<link rel="stylesheet" href="app.css" />
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="StoreController as storecntrler">
+		<h1>
+			{{"Hello" + " Samsi"}} I am {{4 + 6}}
+		</h1>
+		<h2> Gem Lists </h2>
+		<div ng-hide="product.soldOut" ng-repeat="product in storecntrler.products | orderBy:'-price' | limitTo:5">
+			
+			<!-- not custom directive -->
+			<!-- <div ng-include="'product.html'"></div> -->
+			<!-- not custom directive -->
+			
+			<!-- custom element directives -->
+			<product-title></product-title> 
+			<!-- attribute directive -->
+			<h3 product-title></h3>
+			<!-- -->
+			
+			<!-- <section ng-init="tabval = 1"> 
+				<ul class="nav nav-pills">
+					<li ng-class="{ active: tabval === 1 }"><a href ng-click="tabval = 1">Description</a></li> 
+					<li ng-class="{ active: tabval === 2 }"><a href ng-click="tabval = 2">Specifications</a></li>
+					<li ng-class="{ active: tabval === 3 }"><a href ng-click="tabval = 3">Reviews</a></li>
+				</ul>
+				{{tabval}}
+				<div class="panel" ng-show="tabval === 1">
+					<h4>Description</h4>
+					<p>{{product.description}}</p>
+				</div>
+				<div ng-show="tabval === 2">
+					<h4>Specifications</h4>
+					<p>{{" None Yet "}}</p>
+				</div>
+				<div ng-show="tabval === 3">
+					<h4>Reviews</h4>
+					<p>{{" None Yet "}}</p>
+				</div>
+			</section> -->
+			<section ng-controller="PanelController as panel">
+				<ul class="nav nav-pills">
+					<li ng-class="{ active: panel.selected(1) }"><a href ng-click="panel.selectTab(1)">Description</a></li> <!-- setting the active tab when tabval = 1 -->
+					<li ng-class="{ active: panel.selected(2) }"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+					<li ng-class="{ active: panel.selected(3) }"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+				</ul>
+				{{tabval}}
+				<div class="panel" ng-show="panel.selected(1)">
+					<h4>Description</h4>
+					<p>{{product.description}}</p>
+				</div>
+				<div ng-show="panel.selected(2)">
+					<h4>Specifications</h4>
+					<p>{{" None Yet "}}</p>
+				</div>
+				<div ng-show="panel.selected(3)">
+					<h4>Reviews</h4>
+					<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+					<blockquote>
+						<p>{{reviewCtrl.review.stars}}</p>
+						<p>{{reviewCtrl.review.body}}</p>
+						<p>{{reviewCtrl.review.author}}</p>
+					</blockquote>
+					<label>Stars: </label>
+					<select ng-model="reviewCtrl.review.stars" required>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+					<br />
+					<label>Text: </label>
+					<textarea ng-model="reviewCtrl.review.body" required></textarea>
+					<br />
+					<label>Author: </label>
+					<input type="email" ng-model="reviewCtrl.review.author" required/>
+					<br />
+					<div> ReviewForm is {{reviewForm.$valid}}</div>
+					<input type="submit" value="Submit"/>
+					
+					</form>
+				</div>
+				
+			</section>
+			<hr />
+		</div>
+		
+	</body>
+</html>
+
